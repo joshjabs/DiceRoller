@@ -4,50 +4,41 @@ function getRandomInt(max) {
 
 function addDice() {
 
+    console.log("adding dice")
     var node = document.createElement("IMG")
     node.setAttribute("src", "imgs/die-1.png")
-    // set id attribute
+    // could also set id attribute here
     document.getElementById("container").appendChild(node)
-
+    console.log("dice added")
 }
 
 function removeDice() {
-
-    var container = document.getElementById("container");   // Get the containing element with id="myList"
-    container.removeChild(container.childNodes[0]);           // Remove <ul>'s first child node (index 0) 
+    console.log("removing dice")
+    var container = document.getElementById("container")   // Get the containing element with id="myList"
+    container.removeChild(container.childNodes[0])          // Remove <ul>'s first child node (index 0) 
+    console.log("dice removed")
 }
 
-function buttonClicked() {
+function rollDice() {
+    console.log("rolling dice")
 
-    addDice()
+    var sum = 0
 
-}
+    var container = document.getElementById("container")
+    for (var i=0; i < container.childNodes.length; i++)
+    {
 
-// Old Handler
-function buttonClicked2() {
-    console.log("Roll was clicked")
+        // get random integer
+        var roll = getRandomInt(6)
 
-    var roll = getRandomInt(6)
-    console.log( roll )
+        // update the image
+        container.childNodes[i].src = "imgs/die-" + roll + ".png"
 
-    var roll2 = getRandomInt(6)
-    console.log( roll2 )
-
-    //Update Dice
-    document.getElementById("dice").src = "imgs/die-"+roll+".png" 
-    document.getElementById("dice2").src = "imgs/die-"+roll2+".png" 
-
-    //Check If Doubles
-    if ( roll == roll2 ) {
-
-        document.getElementById("status").innerHTML = "Dice are Equal - DOUBLES!"
-
-    } else {
-
-        document.getElementById("status").innerHTML = "Player Rolled: " + (roll + roll2)
-
+        sum += roll
     }
-    
+
+    document.getElementById("status").innerHTML = "Player Rolled: " + sum
+
 }
 
 
