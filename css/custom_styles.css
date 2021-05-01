@@ -1,0 +1,45 @@
+body {
+    background-image: url("https://cdn.hipwallpaper.com/i/30/84/5dak3Z.jpg");
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color:white;
+    text-shadow: 2px 2px black;
+}
+
+h2 {
+    color:white;
+}
+
+td {
+    border: 2px solid black;
+    text-align: center;
+    list-style-type: none;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+img {
+    max-height:100px;
+}
+
+.container {
+    padding-top: 50px;
+    max-width: 35%;
+}
+
+.frosted {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50px;
+    border: 2px solid black;
+    padding:30px;
+    max-width: 30%;
+}
+
+button {
+    padding: 20px;
+}

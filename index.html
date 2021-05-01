@@ -1,54 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Required Meta Tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
     <title>Dice Roller</title>
 
-    <script src="roller.js" defer></script>
+    <!-- Defered Javascript Imports to Speed Up Page Loading -->
+    <script src="js/roller.js" defer></script>
+    <script src="js/sidebar.js" defer></script>
 
-    <style>
-
-        td {
-            border: 2px solid black;
-            text-align: center;
-            list-style-type: none;
-        }
-
-        footer {
-            position: absolute;
-            bottom: 0;
-        }
-
-        img {
-            max-height:100px;
-        }
-    
-    </style>
-
+    <!-- Custom CSS Stylesheets -->
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/custom_styles.css">
 
 </head>
+
 <body>
 
-    <center>
-
-        <h1>Dice Roller</h1>
-
-        <button onClick="addDice()">Add Dice</button>
-        <button onClick="rollDice()">Roll Dice</button>
-        <button onClick="removeDice()">Remove Dice</button>    
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        
+        <h2>Settings</h2>
+        <hr>
+        
+        <!-- Close Sidebar Button -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        
+        <!-- Add / Remove Dice Buttons -->
+        <a href="#" onClick="addDice()">Add Dice</a>
+        <a href="#" onClick="removeDice()">Remove Dice</a>
 
         <br><br>
 
-        <section id="container"></section>
+        <!-- Set Dice Count Input Explicitly -->
+        <a href="#diceCount">Dice Count</a>
 
-        <footer>
-            <h3 id="status">Player Hasn't Rolled Yet</h3>
-        </footer>
+        <!-- Set Dice Count on MouseOut Event passing this Element as Paramater -->
+        <input id="diceCount" onmouseout="setDiceCount(this)" type="number" value="2">
+
+        <br><br><hr><br><br>
+
+        <!-- Auto Roller -->
+        <h2 style="display:inline;">Auto Roll?</h2>
+        <input type="checkbox" id="autoroll" onclick="configureAutoRoller(this)"></input>
+
+    </div>
+
+
+    <!-- Open Sidebar Button -->
+    <div id="openSidebar">
+        <button class="openbtn" onclick="openNav()">☰ Settings</button>
+    </div>
+
+
+    <!-- Main Page Content -->
+    <center>
+
+        <!-- Header -->
+        <h1>Dice Roller</h1>
+
+        <!-- Roll Dice Button -->
+        <button id="rollButton" onClick="rollDice()">ROLL!</button>
+
+        <!-- Container to Hold Dice Images. 
+                Please Note: Any Extra Line Breaks / Whitespace will be treated as a Child Node Text Block
+                This means any extra elements / content inside this container will break the JS Code -->
+        <section id="container" class="container"><img src="imgs/die-1.png"><img src="imgs/die-1.png"></section>
+
+        <br><br>
+
+        <!-- Status Message -->
+        <h3 id="status" class="frosted">Player Hasn't Rolled Yet</h3>
 
     </center>
 
-    
+
 </body>
+
 </html>
